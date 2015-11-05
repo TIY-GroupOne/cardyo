@@ -1,7 +1,7 @@
 class CardController < ApplicationController 
 
 	def create
-		@deck = Deck.find(params[:id])
+		@deck = Deck.find_by(title: params[:title])
 		@deck.cards.create(deckid: :id, question: params[:question], answer: params[:answer])
 		
 		#render some json
@@ -9,7 +9,7 @@ class CardController < ApplicationController
 	end
 
 	def delete
-		@card = Card.find_by(params[:deckid], params[:question])
+		@card = Card.find_by(deckid: params[:deckid],question: params[:question])
 		@card.destroy
 		#render some json
 		render json: { deck: @card }, status: :ok
