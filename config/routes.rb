@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get "/index" , to: "deck#index"
   get "/deck/:id" , to: "deck#retrieve"
 
-  post "deck" , to: "deck#create"
-  post "deck/:id/card" , to: "card#create"
+  post "deck/:title" , to: "deck#create"
+  post "deck/:title/:question/:answer" , to: "card#create"
 
-  delete "deck" , to: "deck#delete"
-  delete "deck/:id/card" , to: "card#delete"
+  delete "deck/:title" , to: "deck#delete"
+  delete "deck/:title/card/:question" , to: "card#delete"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

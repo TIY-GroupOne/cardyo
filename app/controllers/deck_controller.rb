@@ -2,6 +2,7 @@ class DeckController < ApplicationController
 
 	def index
 		@decks = Deck.order("title")
+		
 		#render some json
 		render "index.json.jbuilder", status: :ok
 	end

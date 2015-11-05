@@ -1,7 +1,7 @@
 class CardController < ApplicationController 
 
 	def create
-		@deck = Deck.find(params[:id])
+		@deck = Deck.find(params[:title])
 		@deck.cards.create(deckid: @deck.deckid, question: params[:question], answer: params[:answer])
 		#render some json
 		status: :created
