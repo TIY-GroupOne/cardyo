@@ -9,8 +9,6 @@ get "/logout", to: "registrations#logout"
 #USER CONTROLLERS
 get "/users/:id", to: "users#info" , as: "user"
 post "/users/new", to: "users#new"
-get "/users/:id", to: "users#info"
-
 get "/users/:id/profile", to: "users#profile", as: "profile"
 
 #DECK AND CARD ROUTES
