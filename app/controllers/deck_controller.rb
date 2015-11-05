@@ -1,8 +1,8 @@
 class DeckController < ApplicationController 
 
 	def index
-		@deck = Deck.order("title")
-
+		@decks = Deck.order("title")
+		#todo: update json response to return username not id
 		#render some json
 		render "index.json.jbuilder", status: :ok
 	end
@@ -15,7 +15,7 @@ class DeckController < ApplicationController
 
 	def create
 		
-		@deck = Deck.new(title: params[:title])
+		@deck = Deck.new(userid: params[:userid], title: params[:title])
 
 		if @deck.save
 			render json: { deck: @deck }, status: :ok
@@ -30,6 +30,6 @@ class DeckController < ApplicationController
 		@deck = Deck.find_by(params[:title])
 		@deck.destroy
 		#render some json
-		
+		render json: { deck: @deck }, status: :ok
 	end
 end

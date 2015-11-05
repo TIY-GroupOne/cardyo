@@ -1,5 +1,5 @@
-json.deck do
-  json.title @deck.title
-  json.username @deck.user.username
+json.decks @decks do |deck|
+  json.title deck.title
+  json.userid deck.userid
 
 end
