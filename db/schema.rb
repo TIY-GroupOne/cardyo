@@ -49,7 +49,4 @@ ActiveRecord::Schema.define(version: 20151105194751) do
     t.string   "access_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
 end
