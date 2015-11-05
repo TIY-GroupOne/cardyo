@@ -14,6 +14,7 @@ class DeckController < ApplicationController
 	end
 
 	def create
+		
 		@deck = Deck.new(userid: params[:id], title: params[:title])
 
 		if @deck.save
