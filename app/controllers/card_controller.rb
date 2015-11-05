@@ -2,7 +2,8 @@ class CardController < ApplicationController
 
 	def create
 		@deck = Deck.find_by(title: params[:title])
-		@deck.cards.create(deckid: :id, question: params[:question], answer: params[:answer])
+		
+		@card = @deck.cards.create(deckid: @deck.id, question: params[:question], answer: params[:answer])
 		
 		#render some json
 		render json: { deck: @card }, status: :created
