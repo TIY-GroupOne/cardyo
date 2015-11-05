@@ -10,7 +10,6 @@ post "/login", to: "registrations#login"
 get "/logout", to: "registrations#logout"
 
 #USER CONTROLLERS
-post "/users/new", to: "users#create"
 get "/users/:id", to: "users#info" , as: "user"
 post "/users/new", to: "users#new"
 get "/users/:id", to: "users#info"
