@@ -9,7 +9,8 @@ class DeckController < ApplicationController
 
 	def retrieve
 		@deck = Deck.find_by(params[:title])
-		@cards = Card.find_by(deck_id: @deck.id)
+		@cards = Card.where(deck_id: @deck.id)
+		binding.pry
 		#render some json
 		render "retrieve.json.jbuilder", status: :found
 	end

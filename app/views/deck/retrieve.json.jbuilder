@@ -5,6 +5,7 @@ json.deck do
 end
 
 json.cards @cards do |card|
-  json.card card.question
-  json.card card.answer
+  json.deck_id card.deck_id
+  json.question card.question
+  json.answer card.answer
 end
