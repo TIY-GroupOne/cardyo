@@ -2,7 +2,7 @@ class DeckController < ApplicationController
 
 	def index
 		@decks = Deck.order("title")
-		
+
 		#render some json
 		render "index.json.jbuilder", status: :ok
 	end
@@ -14,7 +14,7 @@ class DeckController < ApplicationController
 	end
 
 	def create
-		@deck = Deck.new(userid: params[:userid], title: params[:title])
+		@deck = Deck.new(userid: params[:id], title: params[:title])
 
 		if @deck.save
 			#status: :ok
