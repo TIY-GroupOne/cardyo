@@ -26,6 +26,11 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def logout
+    current_user = nil
+    redirect_to root
+  end
+
   def destroy
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])

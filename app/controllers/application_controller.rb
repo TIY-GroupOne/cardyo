@@ -4,15 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   helper_method :current_user
 
-  def current_user
-    user_id = session[:user_id]
-    user_id && User.find(user_id)
+ def current_user
+    token = request.headers['Access-Token']
+    token && User.find_by(access_token: token)
   end
 
   def authenticate_user!
     unless current_user
-      flash[:notice] = "You have to be logged in to do that."
-      redirect_to login_path
+      token = request.headers['Access-Token']
+      render json: { error: "Could not authenticate with token:'#{token}'" },
+        status: :unauthorized
     end
   end
 end
