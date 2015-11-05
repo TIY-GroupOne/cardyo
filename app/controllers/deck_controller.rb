@@ -1,7 +1,7 @@
 class DeckController < ApplicationController 
 
 	def index
-		@decks = Deck.order("title")
+		@deck = Deck.order("title")
 
 		#render some json
 		render "index.json.jbuilder", status: :ok
@@ -15,11 +15,12 @@ class DeckController < ApplicationController
 
 	def create
 		
-		@deck = Deck.new(userid: params[:id], title: params[:title])
+		@deck = Deck.new(title: params[:title])
 
 		if @deck.save
-			#status: :ok
+			render json: { deck: @deck }, status: :ok
 		else
+
 			render json: { errors: @deck.errors.full_messages },
         	status: :unprocessable_entity
 		end
@@ -29,6 +30,6 @@ class DeckController < ApplicationController
 		@deck = Deck.find_by(params[:title])
 		@deck.destroy
 		#render some json
-		#status: :ok
+		
 	end
 end
