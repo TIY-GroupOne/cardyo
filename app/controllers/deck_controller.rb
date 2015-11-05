@@ -9,13 +9,14 @@ class DeckController < ApplicationController
 
 	def retrieve
 		@deck = Deck.find_by(params[:title])
+		@cards = Card.find_by(deck_id: @deck.id)
 		#render some json
 		render "retrieve.json.jbuilder", status: :found
 	end
 
 	def create
 		
-		@deck = Deck.new(userid: params[:userid], title: params[:title])
+		@deck = Deck.new(user_id: params[:userid], title: params[:title])
 
 		if @deck.save
 			render json: { deck: @deck }, status: :ok
