@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  ## Deck routes
+  get "/index" , to: "deck#index"
+  get "/deck/:id" , to: "deck#retrieve"
+
+  post "deck" , to: "deck#create"
+  post "deck/:id/card" , to: "card#create"
+
+  delete "deck" , to: "deck#delete"
+  delete "deck/:id/card" , to: "card#delete"
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
