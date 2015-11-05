@@ -27,8 +27,8 @@ delete "/decks/:id/cards/" , to: "card#delete"
 
 
 #USER CONTROLLERS
-get "/users/:id/profile", to: "users#profile", as: profile
-put "/users/:id/profile", to: "users#profedit"
-post "/users/:id/profile", to: "users#profupdate"
+#get "/users/:id/profile", to: "users#profile", as: profile
+#put "/users/:id/profile", to: "users#profedit"
+#post "/users/:id/profile", to: "users#profupdate"
 
 end
