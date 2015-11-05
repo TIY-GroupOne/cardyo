@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-root "users#welcome"
-
 #REGISTRATION CONTROLLER
 post "/signup", to: "registrations#create"
 delete "/signup", to: "registrations#destroy"
