@@ -10,7 +10,7 @@ class DeckController < ApplicationController
 	def retrieve
 		@deck = Deck.find_by(params[:title])
 		@cards = Card.where(deck_id: @deck.id)
-		binding.pry
+		
 		#render some json
 		render "retrieve.json.jbuilder", status: :found
 	end
@@ -30,6 +30,7 @@ class DeckController < ApplicationController
 
 	def delete
 		@deck = Deck.find_by(params[:title])
+		@card = Card.destroy_all(deck_id: @deck.deck_id)
 		@deck.destroy
 		#render some json
 		render json: { deck: @deck }, status: :ok

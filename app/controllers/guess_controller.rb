@@ -1,0 +1,5 @@
+class GuessController < ApplicationController 
+
+
+
+end

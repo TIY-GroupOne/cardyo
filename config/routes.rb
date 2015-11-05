@@ -23,7 +23,7 @@ get "/decks/cards" , to: "deck#retrieve"
 post "/decks" , to: "deck#create"
 post "/decks/cards" , to: "card#create"
 delete "/decks" , to: "deck#delete"
-delete "/decks/:id/cards/" , to: "card#delete"
+delete "/decks/cards/" , to: "card#delete"
 
 
 #USER CONTROLLERS
