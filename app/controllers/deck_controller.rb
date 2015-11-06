@@ -8,7 +8,8 @@ class DeckController < ApplicationController
 	end
 
 	def retrieve
-		@deck = Deck.find_by(params[:title])
+		binding.pry
+		@deck = Deck.find_by(id: params[:id])
 		@cards = Card.where(deck_id: @deck.id)
 		
 		#render some json
@@ -17,7 +18,7 @@ class DeckController < ApplicationController
 
 	def create
 		
-		@deck = Deck.new(user_id: params[:userid], title: params[:title])
+		@deck = Deck.new(user_id: params[:user_id], title: params[:title])
 
 		if @deck.save
 			render json: { deck: @deck }, status: :ok

@@ -19,7 +19,7 @@ get "/users/:id/profile", to: "users#profile", as: "profile"
 
 #DECK AND CARD ROUTES
 get "/index" , to: "deck#index"
-get "/decks/cards" , to: "deck#retrieve"
+get "/decks/:id/cards" , to: "deck#retrieve"
 post "/decks" , to: "deck#create"
 post "/decks/cards" , to: "card#create"
 delete "/decks" , to: "deck#delete"

@@ -1,0 +1,108 @@
+Get the index of decks:
+
+get http://localhost:3000/index
+
+{
+  "decks": [
+    {
+      "title": "default",
+      "user_id": null
+    },
+    {
+      "title": "default2",
+      "user_id": null
+    },
+    {
+      "title": "default2",
+      "user_id": null
+    },
+    {
+      "title": "something",
+      "user_id": 1
+    },
+    {
+      "title": "textdeck",
+      "user_id": null
+    },
+  ]
+}
+
+Create a new deck:
+
+post http://localhost:3000/decks
+
+header:
+	userid - will change to user_id
+	title
+
+
+{
+  "deck": {
+    "id": 17,
+    "user_id": null,
+    "title": "something",
+    "created_at": "2015-11-05T20:53:38.851Z",
+    "updated_at": "2015-11-05T20:53:38.851Z"
+  }
+}
+
+Create a new card:
+
+post http://localhost:3000/decks/cards
+
+header:
+	title
+	question
+	answer
+
+{
+  "deck": {
+    "id": 7,
+    "question": "What is charlie browns dog?",
+    "answer": "Snoopy",
+    "deck_id": 1,
+    "created_at": "2015-11-05T20:56:12.372Z",
+    "updated_at": "2015-11-05T20:56:12.372Z"
+  }
+}
+
+Retrieve the cards from a deck:
+
+get http://localhost:3000/decks/cards
+
+header:
+	title
+
+{
+  "deck": {
+    "title": "default",
+    "deck_id": 1
+  },
+  "cards": [
+    {
+      "deck_id": 1,
+      "question": "What is charlie browns dog?",
+      "answer": "Snoopy"
+    },
+    {
+      "deck_id": 1,
+      "question": "Why is GitHub so lame?",
+      "answer": "Because"
+    },
+    {
+      "deck_id": 1,
+      "question": "Why?",
+      "answer": "IDK"
+    },
+    {
+      "deck_id": 1,
+      "question": "What is charlie browns dog?",
+      "answer": "Snoopy"
+    },
+    {
+      "deck_id": 1,
+      "question": "What is charlie browns dog?",
+      "answer": "Snoopy"
+    }
+  ]
+}
