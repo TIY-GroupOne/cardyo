@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.where(id: != 0)
+    @users = User.all
+    render "users.json.jbuilder", status: :found
   end
 
   #def profile
@@ -14,9 +15,6 @@ class UsersController < ApplicationController
   end
 
   def profupdate
-  end
-
-  def destroy
   end
 
 end
