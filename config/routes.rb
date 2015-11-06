@@ -19,6 +19,10 @@ post "/decks/:id/cards" , to: "card#create"
 delete "/decks/:id" , to: "deck#delete"
 delete "/decks/cards/:id" , to: "card#delete"
 
+#GUESS CONTROLLER
+get "/answers", to: "guess#retrieve"
+post "/answers", to: "guess#record"
+
 
 #USER CONTROLLERS
 #get "/users/:id/profile", to: "users#profile", as: profile
