@@ -10,7 +10,7 @@ class CardController < ApplicationController
 	end
 
 	def delete
-		@card = Card.find_by(deck_id: params[:deckid],question: params[:question])
+		@card = Card.find_by(id: params[:id])
 		@card.destroy
 		#render some json
 		render json: { deck: @card }, status: :ok
