@@ -1,7 +1,7 @@
 class CardController < ApplicationController 
 
 	def create
-		#@deck = Deck.find_by(id: params[:id])
+		@deck = Deck.find_by(id: params[:id])
 		#binding.pry
 		@card = @deck.cards.create(deck_id: params[:id], question: params[:question], answer: params[:answer])
 		
