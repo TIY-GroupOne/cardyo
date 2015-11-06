@@ -10,10 +10,17 @@ class GuessController < ApplicationController
 	end
 
 	def record
-    #deckid, question, answer --> Card
-    #cardid, userid, answer, duration
-    @card = Card.find(card_id: params[])
-	end
+    @guess = Guess.new(user_id: params[:user_id], 
+                        card_id: params[:card_id],
+                        duration: params[:duration], 
+                        correct: params[:correct],
+              )
+    if @guess.save
+    else
+      render json: { errors: @guess.errors.full_messages },
+          status: :unprocessable_entity
+      end
+	 end
 
 
 end
