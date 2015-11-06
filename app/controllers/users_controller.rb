@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-  #def info
-  #end
+  def index
+    @users = User.where(id: != 0)
+  end
 
   #def profile
   #  @user = current_user

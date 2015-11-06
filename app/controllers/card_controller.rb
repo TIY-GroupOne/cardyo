@@ -9,6 +9,11 @@ class CardController < ApplicationController
 		render json: { deck: @card }, status: :created
 	end
 
+	def editcard
+    card = Card.find(params[:id])
+    card.update(question: params[:question], answer: params[:answer],)
+  end
+
 	def delete
 		@card = Card.find_by(id: params[:id])
 		@card.destroy
