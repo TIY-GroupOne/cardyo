@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-root "users#welcome"
-
 #REGISTRATION CONTROLLER
 post "/signup", to: "registrations#create"
 delete "/signup", to: "registrations#destroy"
@@ -10,11 +7,8 @@ post "/login", to: "registrations#login"
 get "/logout", to: "registrations#logout"
 
 #USER CONTROLLERS
-post "/users/new", to: "users#create"
 get "/users/:id", to: "users#info" , as: "user"
 post "/users/new", to: "users#new"
-get "/users/:id", to: "users#info"
-
 get "/users/:id/profile", to: "users#profile", as: "profile"
 
 #DECK AND CARD ROUTES

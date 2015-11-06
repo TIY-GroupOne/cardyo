@@ -2,7 +2,7 @@ class CardController < ApplicationController
 
 	def create
 		@deck = Deck.find_by(title: params[:title])
-		
+		#binding.pry
 		@card = @deck.cards.create(deck_id: @deck.id, question: params[:question], answer: params[:answer])
 		
 		#render some json

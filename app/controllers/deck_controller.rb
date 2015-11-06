@@ -19,6 +19,7 @@ class DeckController < ApplicationController
 	def create
 		
 		@deck = Deck.new(user_id: params[:user_id], title: params[:title])
+		@deck = current_user.decks.new(title: params[:title])
 
 		if @deck.save
 			render json: { deck: @deck }, status: :ok
