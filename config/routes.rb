@@ -15,7 +15,7 @@ get "/users/:id/profile", to: "users#profile", as: "profile"
 get "/index" , to: "deck#index"
 get "/decks/:id/cards" , to: "deck#retrieve"
 post "/decks" , to: "deck#create"
-post "/decks/cards" , to: "card#create"
+post "/decks/:id/cards" , to: "card#create"
 delete "/decks/:id" , to: "deck#delete"
 delete "/decks/cards/:id" , to: "card#delete"
 
