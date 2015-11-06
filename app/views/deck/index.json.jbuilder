@@ -3,4 +3,5 @@ json.decks @decks do |deck|
   json.deck_id deck.id
   json.user_id deck.user_id
   json.username deck.user.username
+  json.cardcount deck.cards.count
 end
